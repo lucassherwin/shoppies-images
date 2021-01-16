@@ -23,3 +23,23 @@ post.images.attach(
     filename: 'shrek.png',
     content_type: 'application/png'
 )
+
+post_2 = Post.create(
+    title: 'test title 2',
+    description: 'test description 2',
+    points: 5684,
+    tag: 'test',
+    user_id: user.id
+)
+
+post_2.images.attach(
+    io: File.open('./public/images/shrek2.jpg'),
+    filename: 'shrek2.jpg',
+    content_type: 'application/jpg'
+)
+
+post_2.images.attach(
+    io: File.open('./public/images/shock.png'),
+    filename: 'shock.png',
+    content_type: 'application/png'
+)
