@@ -19,22 +19,26 @@ class PostsController < ApplicationController
     end
 
     def show
-        post = Post.find_by(user_id: params[:user_id]) # find the post by the user_id
+        posts = Post.where(user_id: params[:user_id]) # find all the posts by the user_id
         # if post.user_id == params[:user_id] # if the post has the same user_id as the user attempting to access it
         #     render json: post # render it
         # else
         #     render json: {message: "You do not have access to this post"} # otherwise let the user know they do not have permission
         # end
 
-        # get all the images associated with the post
-        images = []
-        post.images.each do |i|
-            image = rails_blob_path(i)
-            images << image
+        posts_arr = []
+        posts.each do |post| # for each post
+            # byebug
+            # get all the images associated with the post
+            images = []
+            post.images.each do |i|
+                image = rails_blob_path(i)
+                images << image
+            end
+            posts_arr << {post: post, images: images} # put the post with images in the arr
         end
-        render json: {post: post, images: images}
 
-        # TODO: update to handle getting multiple posts associated with a single user_id
+        render json: {posts: posts_arr}
     end
 
     def update
