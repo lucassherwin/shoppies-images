@@ -42,7 +42,9 @@ class PostsController < ApplicationController
     end
 
     def update
-
+        # byebug
+        post = Post.find(params[:id])
+        post.update(images: params[:images])
     end
 
     private
