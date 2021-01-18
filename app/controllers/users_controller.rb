@@ -11,8 +11,13 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(username: params[:username])
-        if user.password == params[:password]
-            render json: user
+        # byebug
+        if user
+            if user.password == params[:password]
+                render json: user
+            else
+                render json: {message: "Incorrect username or password"}
+            end
         else
             render json: {message: "Incorrect username or password"}
         end
