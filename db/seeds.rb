@@ -14,6 +14,7 @@ post = Post.create(
     title: 'test title',
     description: 'test description',
     points: 5,
+    private: false,
     tag: 'test',
     user_id: user.id
 )
@@ -28,6 +29,7 @@ post_2 = Post.create(
     title: 'test title 2',
     description: 'test description 2',
     points: 5684,
+    private: false,
     tag: 'test',
     user_id: user.id
 )

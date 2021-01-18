@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :description
       t.integer :points
       t.string :tag
+      t.boolean :private, :default => false # by default the post is public
       t.integer :user_id
       t.timestamps
     end

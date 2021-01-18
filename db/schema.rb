@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_221303) do
     t.string "description"
     t.integer "points"
     t.string "tag"
+    t.boolean "private", default: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
